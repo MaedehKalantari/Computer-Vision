@@ -1,7 +1,35 @@
-# **Object Detection using YOLO & OpenCV**  
+### **Using Ultralytics YOLO for Object Detection**  
+In this project, we implemented object detection using **YOLO (You Only Look Once)**, specifically leveraging **Ultralytics' YOLO framework**. **Ultralytics YOLO** is a powerful, easy-to-use implementation of YOLO that provides pre-trained models and a user-friendly API for object detection. We use **cv2 (OpenCV)** for processing video input and performing frame-by-frame object detection.  
 
-## **Overview**  
-This project implements **object detection** using the **YOLO (You Only Look Once) model** on both **images** and **videos**. We use **cv2 (OpenCV)** for processing video input and performing frame-by-frame object detection.  
+#### **Why Ultralytics YOLO?**  
+1. **Ease of Use** – The Ultralytics library simplifies training, inference, and deployment with a high-level API.  
+2. **Pre-trained Models** – Comes with multiple pre-trained versions (YOLOv5, YOLOv8) for different accuracy vs. speed trade-offs.  
+3. **Fast Inference** – Optimized for real-time object detection, making it ideal for both image and video processing.  
+4. **Supports Multiple Input Types** – Can process images, videos, and even webcam feeds with just a few lines of code.  
+
+#### **How YOLO is Used in This Project**  
+- **Model Loading**: We use Ultralytics’ `YOLO` class to load a pre-trained YOLO model.  
+- **Object Detection**: The model runs inference on images and video frames, detecting objects with high speed and accuracy.  
+- **Bounding Boxes & Labels**: Detected objects are highlighted using bounding boxes, and their labels are displayed on the screen.  
+
+#### **Code Example (Using Ultralytics YOLO for Detection)**  
+```python
+from ultralytics import YOLO
+import cv2  
+
+# Load the YOLO model (YOLOv8 pre-trained)
+model = YOLO("yolov8n.pt")  
+
+# Read an image
+image = cv2.imread("image.jpg")
+
+# Run inference on the image
+results = model(image)  
+
+# Show results
+results.show()
+``
+
 
 ## **Key Features**  
 - **Real-time object detection** using **YOLO**.  
@@ -59,6 +87,6 @@ to define the codec for saving the processed video.
 - For **images**: Objects detected with bounding boxes.  
 - For **videos**:  
   - Objects detected in **real-time**.  
-  - Output video with **bounding boxes** drawn on detected objects.  
-
-This project demonstrates how to apply **YOLO for object detection** in real-world applications using **OpenCV**. 🚀  
+  - Output video with **bounding boxes** drawn on detected objects.
+  - 
+This project effectively integrates **Ultralytics YOLO with OpenCV** to achieve real-time object detection in both images and videos. 🚀
